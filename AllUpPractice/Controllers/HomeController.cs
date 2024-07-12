@@ -18,7 +18,10 @@ namespace AllUpPractice.Controllers
         {
             HomeVM homeVM = new();
             homeVM.Sliders = await _context.Sliders.Where(s=>!s.IsDelete).ToListAsync();
-            homeVM.Categories=await _context.Categories.Where(c=>!c.IsDelete).ToListAsync();
+            homeVM.Categories=await _context.Categories.Where(c=>!c.IsDelete&&c.IsMain).ToListAsync();
+            homeVM.NewProducts=await _context.Products.Where(p=>!p.IsDelete&&p.IsNewArrival).ToListAsync();
+            homeVM.BestSellerProducts=await _context.Products.Where(p=>!p.IsDelete&&p.IsBestSeller).ToListAsync();
+            homeVM.FeaturedProducts=await _context.Products.Where(p=>!p.IsDelete&&p.IsFeatured).ToListAsync();
             return View(homeVM);
         }
 
