@@ -1,4 +1,6 @@
 using AllUpPractice.Data;
+using AllUpPractice.Interfaces;
+using AllUpPractice.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +12,8 @@ builder.Services.AddDbContext<AllUpDbContext>(options =>
 {
     options.UseSqlServer(config.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.AddScoped<ILayoutService,LayoutService>();
 
 var app = builder.Build();
 

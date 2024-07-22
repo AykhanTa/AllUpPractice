@@ -1,4 +1,17 @@
 ﻿$(document).ready(function () {
+
+    $(document).on("keyup", "#searchInput", function () {
+        let searchValue = $(this).val();
+        let categoryId = $("#selectSearch").find(":selected").val();
+        axios.get("/product/searchProduct?categoryId="+categoryId+"&search="+searchValue)
+
+            .then(function (datas) {
+                $("#searchList").html(datas.data)
+            })
+
+    })
+
+    //modal
     $(".productModal").click(function (ev) {
         ev.preventDefault();
         let url = $(this).attr("href");

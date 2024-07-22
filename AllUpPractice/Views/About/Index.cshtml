@@ -1,0 +1,41 @@
+﻿@model IDictionary<string,string>
+
+<section class="about-page pt-20">
+    <div class="container-fluid custom-container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="about-image mt-30">
+                    <img src="assets/images/slider-5.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-content mt-30">
+                    <h2 class="title">Welcome to Allup</h2>
+                    <p>@Model.FirstOrDefault(s=>s.Key=="Welcome").Value</p>
+                </div>
+            </div>
+        </div> <!-- row -->
+        <div class="about-items pt-20">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="about-item mt-30">
+                        <h4 class="title">@Model.FirstOrDefault(s=>s.Key=="Our Company").Key</h4>
+                        <p>@Model.FirstOrDefault(s=>s.Key=="Our Company").Value</p>
+                    </div> <!-- about item -->
+                </div>
+                <div class="col-lg-4">
+                    <div class="about-item mt-30">
+                        <h4 class="title">@Model.FirstOrDefault(s=>s.Key=="Our Team").Key</h4>
+                        <p>@Model.FirstOrDefault(s=>s.Key=="Our Team").Value</p>
+                    </div> <!-- about item -->
+                </div>
+                <div class="col-lg-4">
+                    <div class="about-item mt-30">
+                        <h4 class="title">@Model.FirstOrDefault(s=>s.Key=="Testimonials").Key</h4>
+                        <p>@Model.FirstOrDefault(s=>s.Key=="Testimonials").Value</p>
+                    </div> <!-- about item -->
+                </div>
+            </div> <!-- row -->
+        </div>  <!-- about items -->
+    </div> <!-- container -->
+</section>
